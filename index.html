@@ -1,1 +1,1658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="description"
+content="𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑨𝑪𝑨𝑫𝑬𝑴𝒀 — Plateforme éducative dédiée au trading, à l'analyse des marchés, à la discipline et à la gestion du risque.">
+
+<title>𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑨𝑪𝑨𝑫𝑬𝑴𝒀</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#020308;
+    --bg2:#050812;
+    --card:#080c16;
+    --card2:#0b101c;
+    --blue:#347dff;
+    --blue2:#6ca2ff;
+    --white:#ffffff;
+    --muted:#8d98ad;
+    --line:rgba(255,255,255,.08);
+    --green:#3ee58d;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(52,125,255,.12),transparent 28%),
+        radial-gradient(circle at 85% 40%,rgba(52,125,255,.07),transparent 25%),
+        #020308;
+    color:white;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#020308;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#1c55b9;
+    border-radius:20px;
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(2,3,8,.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-container{
+    max-width:1250px;
+    height:76px;
+    margin:auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:var(--blue2);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:23px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#aeb7c9;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-btn{
+    background:linear-gradient(135deg,#286fff,#1455d9);
+    padding:11px 17px;
+    border-radius:9px;
+    color:white!important;
+    box-shadow:0 8px 30px rgba(52,125,255,.25);
+}
+
+.menu{
+    display:none;
+    font-size:27px;
+    cursor:pointer;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    max-width:1250px;
+    min-height:100vh;
+    margin:auto;
+    padding:150px 24px 90px;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 13px;
+    border:1px solid rgba(52,125,255,.4);
+    background:rgba(52,125,255,.08);
+    color:#6ca2ff;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(44px,6vw,76px);
+    line-height:1.02;
+    margin-bottom:25px;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    display:block;
+    color:#4388ff;
+}
+
+.hero p{
+    max-width:600px;
+    color:#929db1;
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 21px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    font-weight:800;
+    font-size:13px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#347dff,#1655d9);
+    border-color:#347dff;
+    box-shadow:0 12px 35px rgba(52,125,255,.25);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.035);
+}
+
+
+/* ================= MARKET CARD ================= */
+
+.market-card{
+    position:relative;
+    background:
+        linear-gradient(145deg,rgba(12,18,31,.98),rgba(4,7,13,.98));
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:22px;
+    padding:24px;
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55),
+        0 0 60px rgba(52,125,255,.06);
+    overflow:hidden;
+}
+
+.market-card::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(52,125,255,.08);
+    filter:blur(60px);
+    top:-100px;
+    right:-60px;
+}
+
+.market-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.market-name{
+    font-weight:800;
+}
+
+.market-status{
+    color:var(--green);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.chart{
+    height:300px;
+    border-radius:13px;
+    overflow:hidden;
+    position:relative;
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:45px 45px;
+}
+
+.chart svg{
+    width:100%;
+    height:100%;
+}
+
+.chart-label{
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    color:#69758b;
+    font-size:11px;
+}
+
+
+/* ================= STATS ================= */
+
+.stats{
+    max-width:1150px;
+    margin:-25px auto 0;
+    padding:0 24px 80px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.stat{
+    background:rgba(9,13,23,.8);
+    border:1px solid var(--line);
+    padding:24px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat h3{
+    color:#4a8cff;
+    font-size:29px;
+}
+
+.stat p{
+    color:#7f8a9f;
+    font-size:12px;
+}
+
+
+/* ================= GENERAL ================= */
+
+section{
+    padding:100px 24px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title small{
+    color:#4d8eff;
+    font-weight:900;
+    letter-spacing:2px;
+    font-size:11px;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin-top:9px;
+}
+
+.section-title p{
+    max-width:650px;
+    margin:14px auto;
+    color:#818ca1;
+}
+
+
+/* ================= SIGNALS ================= */
+
+#signaux{
+    background:
+        linear-gradient(180deg,transparent,rgba(20,61,130,.06),transparent);
+}
+
+.signal-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:17px;
+}
+
+.signal{
+    background:linear-gradient(145deg,#0a101c,#050810);
+    border:1px solid rgba(52,125,255,.15);
+    border-radius:17px;
+    padding:25px;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.signal:hover{
+    transform:translateY(-5px);
+    border-color:rgba(52,125,255,.45);
+}
+
+.signal::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:rgba(52,125,255,.06);
+    filter:blur(35px);
+    right:-50px;
+    bottom:-50px;
+}
+
+.signal-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.signal-tag{
+    color:#65a0ff;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.signal-time{
+    color:#707b8f;
+    font-size:11px;
+}
+
+.signal h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.signal-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:18px;
+}
+
+.signal-box{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.05);
+    padding:12px;
+    border-radius:9px;
+}
+
+.signal-box span{
+    display:block;
+    color:#6f7a8f;
+    font-size:10px;
+    margin-bottom:3px;
+}
+
+.signal-box strong{
+    font-size:13px;
+}
+
+.educational-note{
+    margin-top:25px;
+    text-align:center;
+    color:#788397;
+    font-size:12px;
+}
+
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:linear-gradient(145deg,#0a0f19,#060910);
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:28px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(52,125,255,.35);
+}
+
+.card-number{
+    color:#448cff;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:11px;
+}
+
+.card p{
+    color:#858fa3;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.card ul{
+    list-style:none;
+}
+
+.card li{
+    color:#adb6c6;
+    font-size:12px;
+    margin:8px 0;
+}
+
+.card li::before{
+    content:"✓";
+    color:#3986ff;
+    margin-right:8px;
+}
+
+
+/* ================= CHAPTERS ================= */
+
+.chapters{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.chapter{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:#080d17;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:21px;
+    transition:.3s;
+}
+
+.chapter:hover{
+    border-color:rgba(52,125,255,.35);
+}
+
+.chapter-num{
+    min-width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:rgba(52,125,255,.1);
+    color:#4b90ff;
+    font-weight:900;
+}
+
+.chapter h3{
+    font-size:15px;
+}
+
+.chapter p{
+    color:#7f899d;
+    font-size:12px;
+}
+
+
+/* ================= PSYCHO ================= */
+
+.psychology{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.mini-card{
+    background:#080d16;
+    border:1px solid var(--line);
+    padding:24px;
+    border-radius:15px;
+}
+
+.mini-card .icon{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.mini-card h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.mini-card p{
+    color:#808b9e;
+    font-size:12px;
+}
+
+
+/* ================= RISK ================= */
+
+.warning{
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,177,52,.045);
+    border:1px solid rgba(255,177,52,.2);
+    border-radius:16px;
+    padding:28px;
+}
+
+.warning h3{
+    color:#ffbf5c;
+    margin-bottom:8px;
+}
+
+.warning p{
+    color:#9da6b5;
+    font-size:13px;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    background:linear-gradient(145deg,#0a101b,#060910);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:35px;
+}
+
+.contact-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px;
+    border-radius:12px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.06);
+    transition:.3s;
+}
+
+.contact-item:hover{
+    transform:translateY(-3px);
+    border-color:rgba(52,125,255,.4);
+    background:rgba(52,125,255,.06);
+}
+
+.contact-icon{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:10px;
+    background:rgba(52,125,255,.1);
+    font-size:19px;
+}
+
+.contact-item small{
+    display:block;
+    color:#69758a;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:2px;
+}
+
+.contact-item strong{
+    font-size:12px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:45px 24px;
+    background:#010207;
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-logo{
+    font-weight:900;
+    font-size:18px;
+}
+
+.footer-logo span{
+    color:#4388ff;
+}
+
+.footer-text{
+    color:#687388;
+    font-size:11px;
+    margin-top:8px;
+}
+
+.footer-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    color:#788398;
+    font-size:11px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+.copyright{
+    max-width:1200px;
+    margin:28px auto 0;
+    color:#4f596c;
+    font-size:10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:76px;
+        left:0;
+        right:0;
+        padding:22px;
+        background:#050812;
+        border-bottom:1px solid var(--line);
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a{
+        display:block;
+        padding:10px 0;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:125px;
+    }
+
+    .signal-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .psychology{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    section{
+        padding:70px 16px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .chapters{
+        grid-template-columns:1fr;
+    }
+
+    .psychology{
+        grid-template-columns:1fr;
+    }
+
+    .contact-list{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:20px;
+    }
+
+    .footer-content{
+        flex-direction:column;
+    }
+
+    .chart{
+        height:240px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+<div class="nav-container">
+
+<a href="#accueil" class="logo">
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀 <span>𝑨𝑪𝑨𝑫𝑬𝑴𝒀</span>
+</a>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+
+<li>
+<a href="#accueil">𝑨𝑪𝑪𝑼𝑬𝑰𝑳</a>
+</li>
+
+<li>
+<a href="#signaux">𝑺𝑰𝑮𝑵𝑨𝑼𝑿</a>
+</li>
+
+<li>
+<a href="#formation">𝑭𝑶𝑹𝑴𝑨𝑻𝑰𝑶𝑵</a>
+</li>
+
+<li>
+<a href="#chapitres">𝑪𝑯𝑨𝑷𝑰𝑻𝑹𝑬𝑺</a>
+</li>
+
+<li>
+<a href="#psychologie">𝑷𝑺𝒀𝑪𝑯𝑶𝑳𝑶𝑮𝑰𝑬</a>
+</li>
+
+<li>
+<a href="#contact" class="nav-btn">𝑪𝑶𝑵𝑻𝑨𝑪𝑻</a>
+</li>
+
+</ul>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<main id="accueil">
+
+<section class="hero">
+
+<div>
+
+<span class="badge">
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑻𝑹𝑨𝑫𝑰𝑵𝑮
+</span>
+
+<h1>
+𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒔 𝒍𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔.
+<span>𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒔. 𝑷𝒓𝒐𝒈𝒓𝒆𝒔𝒔𝒆.</span>
+</h1>
+
+<p>
+𝑼𝒏𝒆 𝒑𝒍𝒂𝒕𝒆𝒇𝒐𝒓𝒎𝒆 𝒆́𝒅𝒖𝒄𝒂𝒕𝒊𝒗𝒆 𝒑𝒐𝒖𝒓
+𝒅𝒆́𝒄𝒐𝒖𝒗𝒓𝒊𝒓 𝒍'𝒂𝒏𝒂𝒍𝒚𝒔𝒆 𝒅𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔,
+𝒍𝒂 𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆 𝒆𝒕 𝒍𝒂 𝒈𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆.
+</p>
+
+<div class="buttons">
+
+<a href="#signaux" class="btn btn-primary">
+𝑽𝑶𝑰𝑹 𝑳𝑬𝑺 𝑺𝑰𝑮𝑵𝑨𝑼𝑿
+</a>
+
+<a href="#formation" class="btn btn-secondary">
+𝑪𝑶𝑴𝑴𝑬𝑵𝑪𝑬𝑹
+</a>
+
+</div>
+
+</div>
+
+
+<!-- GRAPH -->
+
+<div class="market-card">
+
+<div class="market-top">
+
+<div class="market-name">
+𝑴𝑨𝑹𝑲𝑬𝑻 𝑶𝑽𝑬𝑹𝑽𝑰𝑬𝑾
+</div>
+
+<div class="market-status">
+● 𝑬́𝑫𝑼𝑪𝑨𝑻𝑰𝑭
+</div>
+
+</div>
+
+<div class="chart">
+
+<svg viewBox="0 0 800 300" preserveAspectRatio="none">
+
+<defs>
+
+<linearGradient id="lineGradient"
+x1="0" y1="0" x2="1" y2="0">
+
+<stop offset="0%" stop-color="#347dff"/>
+<stop offset="100%" stop-color="#79aaff"/>
+
+</linearGradient>
+
+</defs>
+
+<polyline
+points="0,245 60,225 120,238 175,195 225,215 280,165 330,183 385,132 440,150 500,108 550,125 605,82 660,101 720,55 800,72"
+fill="none"
+stroke="url(#lineGradient)"
+stroke-width="5"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
+
+</svg>
+
+<div class="chart-label">
+𝑨𝑵𝑨𝑳𝒀𝑺𝑬 𝑫𝑼 𝑴𝑨𝑹𝑪𝑯𝑬
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+<div class="stat">
+<h3>𝟑𝟎+</h3>
+<p>𝑺𝑰𝑮𝑵𝑨𝑼𝑿 𝑬́𝑫𝑼𝑪𝑨𝑻𝑰𝑭𝑺</p>
+</div>
+
+<div class="stat">
+<h3>𝟎𝟓</h3>
+<p>𝑴𝑶𝑫𝑼𝑳𝑬𝑺</p>
+</div>
+
+<div class="stat">
+<h3>𝟏𝟎𝟎%</h3>
+<p>𝑬́𝑫𝑼𝑪𝑨𝑻𝑰𝑭</p>
+</div>
+
+<div class="stat">
+<h3>𝟐𝟒/𝟕</h3>
+<p>𝑹𝑬𝑺𝑺𝑶𝑼𝑹𝑪𝑬𝑺</p>
+</div>
+
+</div>
+
+
+<!-- ================= SIGNALS ================= -->
+
+<section id="signaux">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑺𝑰𝑮𝑵𝑨𝑼𝑿</small>
+
+<h2>𝑺𝒊𝒈𝒏𝒂𝒖𝒙 𝒅𝒖 𝒋𝒐𝒖𝒓</h2>
+
+<p>
+𝑫𝒆́𝒄𝒐𝒖𝒗𝒓𝒆 𝒅𝒆𝒔 𝒆𝒙𝒆𝒎𝒑𝒍𝒆𝒔 𝒅'𝒂𝒏𝒂𝒍𝒚𝒔𝒆
+𝒑𝒐𝒖𝒓 𝒂𝒑𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒂̀ 𝒍𝒊𝒓𝒆 𝒖𝒏 𝒎𝒂𝒓𝒄𝒉𝒆́.
+</p>
+
+</div>
+
+
+<div class="signal-wrapper">
+
+
+<div class="signal">
+
+<div class="signal-top">
+
+<span class="signal-tag">
+𝑨𝑵𝑨𝑳𝒀𝑺𝑬 𝟎𝟏
+</span>
+
+<span class="signal-time">
+𝟏𝟓𝑴
+</span>
+
+</div>
+
+<h3>𝑨𝑵𝑨𝑳𝒀𝑺𝑬 𝑫𝑼 𝑴𝑨𝑹𝑪𝑯𝑬</h3>
+
+<p style="color:#818ca0;font-size:12px;">
+𝑬𝒙𝒆𝒎𝒑𝒍𝒆 𝒅'𝒂𝒏𝒂𝒍𝒚𝒔𝒆 𝒃𝒂𝒔𝒆́𝒆 𝒔𝒖𝒓 𝒍𝒂
+𝒔𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆 𝒅𝒖 𝒎𝒂𝒓𝒄𝒉𝒆́.
+</p>
+
+<div class="signal-info">
+
+<div class="signal-box">
+<span>𝑻𝑬𝑵𝑫𝑨𝑵𝑪𝑬</span>
+<strong>𝑯𝑨𝑼𝑺𝑺𝑰𝑬̀𝑹𝑬</strong>
+</div>
+
+<div class="signal-box">
+<span>𝑻𝑰𝑴𝑬𝑭𝑹𝑨𝑴𝑬</span>
+<strong>𝟏𝟓 𝑴𝑰𝑵</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="signal">
+
+<div class="signal-top">
+
+<span class="signal-tag">
+𝑨𝑵𝑨𝑳𝒀𝑺𝑬 𝟎𝟐
+</span>
+
+<span class="signal-time">
+𝟓𝑴
+</span>
+
+</div>
+
+<h3>𝑺𝑻𝑹𝑼𝑪𝑻𝑼𝑹𝑬</h3>
+
+<p style="color:#818ca0;font-size:12px;">
+𝑬𝒙𝒆𝒎𝒑𝒍𝒆 𝒑𝒐𝒖𝒓 𝒄𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆
+𝒍𝒆𝒔 𝒛𝒐𝒏𝒆𝒔 𝒊𝒎𝒑𝒐𝒓𝒕𝒂𝒏𝒕𝒆𝒔 𝒅'𝒖𝒏 𝒈𝒓𝒂𝒑𝒉𝒊𝒒𝒖𝒆.
+</p>
+
+<div class="signal-info">
+
+<div class="signal-box">
+<span>𝑺𝑻𝑹𝑼𝑪𝑻𝑼𝑹𝑬</span>
+<strong>𝑪𝑶𝑵𝑭𝑰𝑹𝑴𝑨𝑻𝑰𝑶𝑵</strong>
+</div>
+
+<div class="signal-box">
+<span>𝑻𝑰𝑴𝑬𝑭𝑹𝑨𝑴𝑬</span>
+<strong>𝟓 𝑴𝑰𝑵</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="signal">
+
+<div class="signal-top">
+
+<span class="signal-tag">
+𝑨𝑵𝑨𝑳𝒀𝑺𝑬 𝟎𝟑
+</span>
+
+<span class="signal-time">
+𝟏𝑯
+</span>
+
+</div>
+
+<h3>𝑺𝑼𝑷𝑷𝑶𝑹𝑻 / 𝑹𝑬́𝑺𝑰𝑺𝑻𝑨𝑵𝑪𝑬</h3>
+
+<p style="color:#818ca0;font-size:12px;">
+𝑬𝒕𝒖𝒅𝒊𝒆 𝒍𝒂 𝒓𝒆́𝒂𝒄𝒕𝒊𝒐𝒏 𝒅𝒖 𝒑𝒓𝒊𝒙
+𝒂𝒖𝒙 𝒛𝒐𝒏𝒆𝒔 𝒕𝒆𝒄𝒉𝒏𝒊𝒒𝒖𝒆𝒔.
+</p>
+
+<div class="signal-info">
+
+<div class="signal-box">
+<span>𝒁𝑶𝑵𝑬</span>
+<strong>𝑰𝑴𝑷𝑶𝑹𝑻𝑨𝑵𝑻𝑬</strong>
+</div>
+
+<div class="signal-box">
+<span>𝑻𝑰𝑴𝑬𝑭𝑹𝑨𝑴𝑬</span>
+<strong>𝟏 𝑯</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="educational-note">
+
+⚠️ 𝑪𝒆𝒔 𝒆𝒙𝒆𝒎𝒑𝒍𝒆𝒔 𝒔𝒐𝒏𝒕 𝒇𝒐𝒖𝒓𝒏𝒊𝒔 𝒂̀ 𝒕𝒊𝒕𝒓𝒆 𝒆́𝒅𝒖𝒄𝒂𝒕𝒊𝒇 𝒆𝒕 𝒏𝒆 𝒄𝒐𝒏𝒔𝒕𝒊𝒕𝒖𝒆𝒏𝒕 𝒑𝒂𝒔 𝒖𝒏 𝒄𝒐𝒏𝒔𝒆𝒊𝒍 𝒇𝒊𝒏𝒂𝒏𝒄𝒊𝒆𝒓.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FORMATION ================= -->
+
+<section id="formation">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑭𝑶𝑹𝑴𝑨𝑻𝑰𝑶𝑵</small>
+
+<h2>𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒔 𝒆́𝒕𝒂𝒑𝒆 𝒑𝒂𝒓 𝒆́𝒕𝒂𝒑𝒆</h2>
+
+<p>
+𝑪𝒐𝒎𝒎𝒆𝒏𝒄𝒆 𝒑𝒂𝒓 𝒍𝒆𝒔 𝒃𝒂𝒔𝒆𝒔 𝒆𝒕
+𝒑𝒓𝒐𝒈𝒓𝒆𝒔𝒔𝒆 𝒗𝒆𝒓𝒔 𝒅𝒆𝒔 𝒄𝒐𝒏𝒄𝒆𝒑𝒕𝒔
+𝒑𝒍𝒖𝒔 𝒂𝒗𝒂𝒏𝒄𝒆́𝒔.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="card-number">𝑴𝑶𝑫𝑼𝑳𝑬 𝟎𝟏</div>
+
+<h3>𝑳𝒆𝒔 𝒃𝒂𝒔𝒆𝒔</h3>
+
+<p>
+𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒄𝒆 𝒒𝒖'𝒆𝒔𝒕 𝒖𝒏 𝒎𝒂𝒓𝒄𝒉𝒆́
+𝒇𝒊𝒏𝒂𝒏𝒄𝒊𝒆𝒓.
+</p>
+
+<ul>
+<li>𝑭𝒐𝒓𝒆𝒙</li>
+<li>𝑰𝒏𝒅𝒊𝒄𝒆𝒔</li>
+<li>𝑨𝒄𝒕𝒊𝒐𝒏𝒔</li>
+<li>𝑪𝒓𝒚𝒑𝒕𝒐𝒎𝒐𝒏𝒏𝒂𝒊𝒆𝒔</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">𝑴𝑶𝑫𝑼𝑳𝑬 𝟎𝟐</div>
+
+<h3>𝑪𝒉𝒂𝒏𝒅𝒆𝒍𝒊𝒆𝒓𝒔</h3>
+
+<p>
+𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒂̀ 𝒍𝒊𝒓𝒆 𝒍𝒆𝒔
+𝒎𝒐𝒖𝒗𝒆𝒎𝒆𝒏𝒕𝒔 𝒅𝒖 𝒑𝒓𝒊𝒙.
+</p>
+
+<ul>
+<li>𝑪𝒐𝒓𝒑𝒔</li>
+<li>𝑴𝒂𝒓𝒕𝒆𝒂𝒖𝒙</li>
+<li>𝑴𝒐𝒕𝒊𝒇𝒔</li>
+<li>𝑻𝒊𝒎𝒆𝒇𝒓𝒂𝒎𝒆𝒔</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">𝑴𝑶𝑫𝑼𝑳𝑬 𝟎𝟑</div>
+
+<h3>𝑨𝒏𝒂𝒍𝒚𝒔𝒆 𝒕𝒆𝒄𝒉𝒏𝒊𝒒𝒖𝒆</h3>
+
+<p>
+𝑬́𝒕𝒖𝒅𝒊𝒆𝒓 𝒍𝒂 𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆 𝒆𝒕 𝒍𝒂
+𝒔𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆 𝒅𝒖 𝒎𝒂𝒓𝒄𝒉𝒆́.
+</p>
+
+<ul>
+<li>𝑻𝒆𝒏𝒅𝒂𝒏𝒄𝒆𝒔</li>
+<li>𝑺𝒖𝒑𝒑𝒐𝒓𝒕𝒔</li>
+<li>𝑹𝒆́𝒔𝒊𝒔𝒕𝒂𝒏𝒄𝒆𝒔</li>
+<li>𝑰𝒏𝒅𝒊𝒄𝒂𝒕𝒆𝒖𝒓𝒔</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">𝑴𝑶𝑫𝑼𝑳𝑬 𝟎𝟒</div>
+
+<h3>𝑷𝒔𝒚𝒄𝒉𝒐𝒍𝒐𝒈𝒊𝒆</h3>
+
+<p>
+𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒍'𝒊𝒎𝒑𝒐𝒓𝒕𝒂𝒏𝒄𝒆
+𝒅𝒆 𝒍𝒂 𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆.
+</p>
+
+<ul>
+<li>𝑫𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆</li>
+<li>𝑷𝒂𝒕𝒊𝒆𝒏𝒄𝒆</li>
+<li>𝑬́𝒎𝒐𝒕𝒊𝒐𝒏𝒔</li>
+<li>𝑱𝒐𝒖𝒓𝒏𝒂𝒍</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">𝑴𝑶𝑫𝑼𝑳𝑬 𝟎𝟓</div>
+
+<h3>𝑮𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆</h3>
+
+<p>
+𝑫𝒆́𝒄𝒐𝒖𝒗𝒓𝒊𝒓 𝒍𝒆𝒔 𝒑𝒓𝒊𝒏𝒄𝒊𝒑𝒆𝒔
+𝒅𝒆 𝒈𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆.
+</p>
+
+<ul>
+<li>𝑹𝒊𝒔𝒒𝒖𝒆</li>
+<li>𝑻𝒂𝒊𝒍𝒍𝒆 𝒅𝒆 𝒑𝒐𝒔𝒊𝒕𝒊𝒐𝒏</li>
+<li>𝑹𝒊𝒔𝒒𝒖𝒆 / 𝑹𝒆𝒏𝒅𝒆𝒎𝒆𝒏𝒕</li>
+<li>𝑫𝒊𝒗𝒆𝒓𝒔𝒊𝒇𝒊𝒄𝒂𝒕𝒊𝒐𝒏</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">𝑩𝑶𝑵𝑼𝑺</div>
+
+<h3>𝑱𝒐𝒖𝒓𝒏𝒂𝒍</h3>
+
+<p>
+𝑶𝒓𝒈𝒂𝒏𝒊𝒔𝒆 𝒕𝒆𝒔 𝒐𝒃𝒔𝒆𝒓𝒗𝒂𝒕𝒊𝒐𝒏𝒔 𝒆𝒕
+𝒔𝒖𝒊𝒔 𝒕𝒐𝒏 𝒂𝒑𝒑𝒓𝒆𝒏𝒕𝒊𝒔𝒔𝒂𝒈𝒆.
+</p>
+
+<ul>
+<li>𝑵𝒐𝒕𝒆𝒔</li>
+<li>𝑶𝒃𝒋𝒆𝒄𝒕𝒊𝒇𝒔</li>
+<li>𝑶𝒃𝒔𝒆𝒓𝒗𝒂𝒕𝒊𝒐𝒏𝒔</li>
+<li>𝑷𝒓𝒐𝒈𝒓𝒆𝒔𝒔𝒊𝒐𝒏</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CHAPTERS ================= -->
+
+<section id="chapitres">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑪𝑯𝑨𝑷𝑰𝑻𝑹𝑬𝑺</small>
+
+<h2>𝑻𝒐𝒏 𝒑𝒂𝒓𝒄𝒐𝒖𝒓𝒔</h2>
+
+<p>
+𝑷𝒓𝒐𝒈𝒓𝒆𝒔𝒔𝒆 𝒑𝒆𝒕𝒊𝒕 𝒂̀ 𝒑𝒆𝒕𝒊𝒕
+𝒆𝒕 𝒄𝒐𝒏𝒔𝒕𝒓𝒖𝒊𝒔 𝒅𝒆 𝒔𝒐𝒍𝒊𝒅𝒆𝒔 𝒃𝒂𝒔𝒆𝒔.
+</p>
+
+</div>
+
+
+<div class="chapters">
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟏</div>
+<div>
+<h3>𝑰𝒏𝒕𝒓𝒐𝒅𝒖𝒄𝒕𝒊𝒐𝒏</h3>
+<p>𝑫𝒆́𝒄𝒐𝒖𝒗𝒓𝒊𝒓 𝒍𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔.</p>
+</div>
+</div>
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟐</div>
+<div>
+<h3>𝑪𝒉𝒂𝒏𝒅𝒆𝒍𝒊𝒆𝒓𝒔</h3>
+<p>𝑳𝒊𝒓𝒆 𝒍𝒆𝒔 𝒎𝒐𝒖𝒗𝒆𝒎𝒆𝒏𝒕𝒔.</p>
+</div>
+</div>
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟑</div>
+<div>
+<h3>𝑺𝒖𝒑𝒑𝒐𝒓𝒕𝒔 & 𝑹𝒆́𝒔𝒊𝒔𝒕𝒂𝒏𝒄𝒆𝒔</h3>
+<p>𝑰𝒅𝒆𝒏𝒕𝒊𝒇𝒊𝒆𝒓 𝒍𝒆𝒔 𝒛𝒐𝒏𝒆𝒔.</p>
+</div>
+</div>
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟒</div>
+<div>
+<h3>𝑻𝒆𝒏𝒅𝒂𝒏𝒄𝒆𝒔</h3>
+<p>𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒍𝒂 𝒔𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆.</p>
+</div>
+</div>
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟓</div>
+<div>
+<h3>𝑨𝒏𝒂𝒍𝒚𝒔𝒆</h3>
+<p>𝑫𝒆́𝒄𝒐𝒖𝒗𝒓𝒊𝒓 𝒅𝒊𝒇𝒇𝒆́𝒓𝒆𝒏𝒕𝒔 𝒐𝒖𝒕𝒊𝒍𝒔.</p>
+</div>
+</div>
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟔</div>
+<div>
+<h3>𝑷𝒔𝒚𝒄𝒉𝒐𝒍𝒐𝒈𝒊𝒆</h3>
+<p>𝑫𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆 𝒆𝒕 𝒑𝒂𝒕𝒊𝒆𝒏𝒄𝒆.</p>
+</div>
+</div>
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟕</div>
+<div>
+<h3>𝑮𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆</h3>
+<p>𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒍𝒆 𝒓𝒊𝒔𝒒𝒖𝒆.</p>
+</div>
+</div>
+
+<div class="chapter">
+<div class="chapter-num">𝟎𝟖</div>
+<div>
+<h3>𝑱𝒐𝒖𝒓𝒏𝒂𝒍</h3>
+<p>𝑺𝒖𝒊𝒗𝒓𝒆 𝒔𝒂 𝒑𝒓𝒐𝒈𝒓𝒆𝒔𝒔𝒊𝒐𝒏.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PSYCHOLOGY ================= -->
+
+<section id="psychologie">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑷𝑺𝒀𝑪𝑯𝑶𝑳𝑶𝑮𝑰𝑬</small>
+
+<h2>𝑳𝒂 𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆 𝒄𝒐𝒎𝒑𝒕𝒆</h2>
+
+<p>
+𝑳'𝒂𝒑𝒑𝒓𝒆𝒏𝒕𝒊𝒔𝒔𝒂𝒈𝒆 𝒅𝒆𝒎𝒂𝒏𝒅𝒆
+𝒅𝒆 𝒍𝒂 𝒑𝒂𝒕𝒊𝒆𝒏𝒄𝒆 𝒆𝒕 𝒅𝒆 𝒍𝒂 𝒓𝒆́𝒈𝒖𝒍𝒂𝒓𝒊𝒕𝒆́.
+</p>
+
+</div>
+
+
+<div class="psychology">
+
+<div class="mini-card">
+<div class="icon">🧠</div>
+<h3>𝑫𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆</h3>
+<p>𝑺𝒖𝒊𝒗𝒓𝒆 𝒖𝒏𝒆 𝒎𝒆́𝒕𝒉𝒐𝒅𝒆 𝒔𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆́𝒆.</p>
+</div>
+
+<div class="mini-card">
+<div class="icon">⏳</div>
+<h3>𝑷𝒂𝒕𝒊𝒆𝒏𝒄𝒆</h3>
+<p>𝑳𝒂𝒊𝒔𝒔𝒆𝒓 𝒍𝒆 𝒕𝒆𝒎𝒑𝒔 𝒂̀ 𝒍'𝒂𝒑𝒑𝒓𝒆𝒏𝒕𝒊𝒔𝒔𝒂𝒈𝒆.</p>
+</div>
+
+<div class="mini-card">
+<div class="icon">🎯</div>
+<h3>𝑶𝒃𝒋𝒆𝒄𝒕𝒊𝒇𝒔</h3>
+<p>𝑫𝒆́𝒇𝒊𝒏𝒊𝒓 𝒅𝒆𝒔 𝒐𝒃𝒋𝒆𝒄𝒕𝒊𝒇𝒔 𝒓𝒆́𝒂𝒍𝒊𝒔𝒕𝒆𝒔.</p>
+</div>
+
+<div class="mini-card">
+<div class="icon">📝</div>
+<h3>𝑱𝒐𝒖𝒓𝒏𝒂𝒍</h3>
+<p>𝑵𝒐𝒕𝒆𝒓 𝒔𝒆𝒔 𝒐𝒃𝒔𝒆𝒓𝒗𝒂𝒕𝒊𝒐𝒏𝒔 𝒆𝒕 𝒔𝒆𝒔 𝒑𝒓𝒐𝒈𝒓𝒆̀𝒔.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RISK ================= -->
+
+<section id="risque">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑹𝑰𝑺𝑸𝑼𝑬</small>
+
+<h2>𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒍𝒆 𝒓𝒊𝒔𝒒𝒖𝒆</h2>
+
+<p>
+𝑳𝒂 𝒈𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆 𝒇𝒂𝒊𝒕 𝒑𝒂𝒓𝒕𝒊𝒆
+𝒅𝒆𝒔 𝒏𝒐𝒕𝒊𝒐𝒏𝒔 𝒊𝒎𝒑𝒐𝒓𝒕𝒂𝒏𝒕𝒆𝒔 𝒂̀ 𝒆́𝒕𝒖𝒅𝒊𝒆𝒓.
+</p>
+
+</div>
+
+
+<div class="warning">
+
+<h3>⚠️ 𝑨𝑽𝑬𝑹𝑻𝑰𝑺𝑺𝑬𝑴𝑬𝑵𝑻</h3>
+
+<p>
+𝑪𝒆 𝒔𝒊𝒕𝒆 𝒆𝒔𝒕 𝒖𝒏𝒊𝒒𝒖𝒆𝒎𝒆𝒏𝒕
+𝒆́𝒅𝒖𝒄𝒂𝒕𝒊𝒇. 𝑳𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔 𝒇𝒊𝒏𝒂𝒏𝒄𝒊𝒆𝒓𝒔
+𝒄𝒐𝒎𝒑𝒐𝒓𝒕𝒆𝒏𝒕 𝒅𝒆𝒔 𝒓𝒊𝒔𝒒𝒖𝒆𝒔 𝒆𝒕 𝒂𝒖𝒄𝒖𝒏
+𝒓𝒆́𝒔𝒖𝒍𝒕𝒂𝒕 𝒏'𝒆𝒔𝒕 𝒈𝒂𝒓𝒂𝒏𝒕𝒊.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑪𝑶𝑵𝑻𝑨𝑪𝑻</small>
+
+<h2>𝑹𝒆𝒔𝒕𝒐𝒏𝒔 𝒆𝒏 𝒄𝒐𝒏𝒕𝒂𝒄𝒕</h2>
+
+<p>
+𝑪𝒍𝒊𝒒𝒖𝒆 𝒔𝒖𝒓 𝒖𝒏 𝒅𝒆 𝒏𝒐𝒔 𝒄𝒂𝒏𝒂𝒖𝒙
+𝒑𝒐𝒖𝒓 𝒏𝒐𝒖𝒔 𝒓𝒆𝒋𝒐𝒊𝒏𝒅𝒓𝒆.
+</p>
+
+</div>
+
+
+<div class="contact-box">
+
+<div class="contact-list">
+
+
+<a class="contact-item"
+href="https://tiktok.com/@pentate7"
+target="_blank"
+rel="noopener noreferrer">
+
+<div class="contact-icon">♪</div>
+
+<div>
+<small>𝑻𝑰𝑲𝑻𝑶𝑲</small>
+<strong>𝒑𝒆𝒏𝒕𝒂𝒕𝒆𝟕</strong>
+</div>
+
+</a>
+
+
+<a class="contact-item"
+href="https://wa.me/50932539509"
+target="_blank"
+rel="noopener noreferrer">
+
+<div class="contact-icon">◉</div>
+
+<div>
+<small>𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷</small>
+<strong>+𝟓𝟎𝟗 𝟑𝟐𝟓𝟑 𝟗𝟓𝟎𝟗</strong>
+</div>
+
+</a>
+
+
+<a class="contact-item"
+href="https://www.instagram.com/zani_a07/"
+target="_blank"
+rel="noopener noreferrer">
+
+<div class="contact-icon">◎</div>
+
+<div>
+<small>𝑰𝑵𝑺𝑻𝑨𝑮𝑹𝑨𝑴</small>
+<strong>𝒛𝒂𝒏𝒊_𝒂𝟎𝟕</strong>
+</div>
+
+</a>
+
+
+<a class="contact-item"
+href="tel:+50932539509">
+
+<div class="contact-icon">☎</div>
+
+<div>
+<small>𝑻𝑬́𝑳𝑬́𝑷𝑯𝑶𝑵𝑬</small>
+<strong>+𝟓𝟎𝟗 𝟑𝟐𝟓𝟑 𝟗𝟓𝟎𝟗</strong>
+</div>
+
+</a>
+
+
+<a class="contact-item"
+href="mailto:lubinlowens59@gmail.com">
+
+<div class="contact-icon">✉</div>
+
+<div>
+<small>𝑬𝑴𝑨𝑰𝑳</small>
+<strong>𝒍𝒖𝒃𝒊𝒏𝒍𝒐𝒘𝒆𝒏𝒔𝟓𝟗@𝒈𝒎𝒂𝒊𝒍.𝒄𝒐𝒎</strong>
+</div>
+
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<div class="footer-logo">
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀 <span>𝑨𝑪𝑨𝑫𝑬𝑴𝒀</span>
+</div>
+
+<div class="footer-text">
+𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒓𝒆. 𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆. 𝑷𝒓𝒐𝒈𝒓𝒆𝒔𝒔𝒆𝒓.
+</div>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="#accueil">𝑨𝒄𝒄𝒖𝒆𝒊𝒍</a>
+
+<a href="#signaux">𝑺𝒊𝒈𝒏𝒂𝒖𝒙</a>
+
+<a href="#formation">𝑭𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏</a>
+
+<a href="#chapitres">𝑪𝒉𝒂𝒑𝒊𝒕𝒓𝒆𝒔</a>
+
+<a href="#psychologie">𝑷𝒔𝒚𝒄𝒉𝒐𝒍𝒐𝒈𝒊𝒆</a>
+
+<a href="#contact">𝑪𝒐𝒏𝒕𝒂𝒄𝒕</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 𝟐𝟎𝟐𝟔 𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝐎𝐅𝐂 ☘️
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* MENU MOBILE */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("active");
+
+}
+
+
+/* FERMER LE MENU APRES UN CLIC */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document
+        .getElementById("navLinks")
+        .classList.remove("active");
+
+    });
+
+});
+
+</script>
+
+
+</body>
+  </html>
